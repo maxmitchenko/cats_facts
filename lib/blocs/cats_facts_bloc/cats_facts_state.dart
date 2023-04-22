@@ -7,4 +7,5 @@ class CatsFactsState with _$CatsFactsState {
     FactModel fact,
   ) = _CatsFactsLoadedState;
   const factory CatsFactsState.error() = _CatsFactsErrorState;
+  const factory CatsFactsState.loading() = _CatsFactsLoadingState;
 }

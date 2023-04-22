@@ -171,6 +171,7 @@ mixin _$CatsFactsState {
     required TResult Function() initial,
     required TResult Function(FactModel fact) loaded,
     required TResult Function() error,
+    required TResult Function() loading,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -178,6 +179,7 @@ mixin _$CatsFactsState {
     TResult? Function()? initial,
     TResult? Function(FactModel fact)? loaded,
     TResult? Function()? error,
+    TResult? Function()? loading,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -185,6 +187,7 @@ mixin _$CatsFactsState {
     TResult Function()? initial,
     TResult Function(FactModel fact)? loaded,
     TResult Function()? error,
+    TResult Function()? loading,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -193,6 +196,7 @@ mixin _$CatsFactsState {
     required TResult Function(_CatsFactsInitialState value) initial,
     required TResult Function(_CatsFactsLoadedState value) loaded,
     required TResult Function(_CatsFactsErrorState value) error,
+    required TResult Function(_CatsFactsLoadingState value) loading,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -200,6 +204,7 @@ mixin _$CatsFactsState {
     TResult? Function(_CatsFactsInitialState value)? initial,
     TResult? Function(_CatsFactsLoadedState value)? loaded,
     TResult? Function(_CatsFactsErrorState value)? error,
+    TResult? Function(_CatsFactsLoadingState value)? loading,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -207,6 +212,7 @@ mixin _$CatsFactsState {
     TResult Function(_CatsFactsInitialState value)? initial,
     TResult Function(_CatsFactsLoadedState value)? loaded,
     TResult Function(_CatsFactsErrorState value)? error,
+    TResult Function(_CatsFactsLoadingState value)? loading,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -271,6 +277,7 @@ class _$_CatsFactsInitialState implements _CatsFactsInitialState {
     required TResult Function() initial,
     required TResult Function(FactModel fact) loaded,
     required TResult Function() error,
+    required TResult Function() loading,
   }) {
     return initial();
   }
@@ -281,6 +288,7 @@ class _$_CatsFactsInitialState implements _CatsFactsInitialState {
     TResult? Function()? initial,
     TResult? Function(FactModel fact)? loaded,
     TResult? Function()? error,
+    TResult? Function()? loading,
   }) {
     return initial?.call();
   }
@@ -291,6 +299,7 @@ class _$_CatsFactsInitialState implements _CatsFactsInitialState {
     TResult Function()? initial,
     TResult Function(FactModel fact)? loaded,
     TResult Function()? error,
+    TResult Function()? loading,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -305,6 +314,7 @@ class _$_CatsFactsInitialState implements _CatsFactsInitialState {
     required TResult Function(_CatsFactsInitialState value) initial,
     required TResult Function(_CatsFactsLoadedState value) loaded,
     required TResult Function(_CatsFactsErrorState value) error,
+    required TResult Function(_CatsFactsLoadingState value) loading,
   }) {
     return initial(this);
   }
@@ -315,6 +325,7 @@ class _$_CatsFactsInitialState implements _CatsFactsInitialState {
     TResult? Function(_CatsFactsInitialState value)? initial,
     TResult? Function(_CatsFactsLoadedState value)? loaded,
     TResult? Function(_CatsFactsErrorState value)? error,
+    TResult? Function(_CatsFactsLoadingState value)? loading,
   }) {
     return initial?.call(this);
   }
@@ -325,6 +336,7 @@ class _$_CatsFactsInitialState implements _CatsFactsInitialState {
     TResult Function(_CatsFactsInitialState value)? initial,
     TResult Function(_CatsFactsLoadedState value)? loaded,
     TResult Function(_CatsFactsErrorState value)? error,
+    TResult Function(_CatsFactsLoadingState value)? loading,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -406,6 +418,7 @@ class _$_CatsFactsLoadedState implements _CatsFactsLoadedState {
     required TResult Function() initial,
     required TResult Function(FactModel fact) loaded,
     required TResult Function() error,
+    required TResult Function() loading,
   }) {
     return loaded(fact);
   }
@@ -416,6 +429,7 @@ class _$_CatsFactsLoadedState implements _CatsFactsLoadedState {
     TResult? Function()? initial,
     TResult? Function(FactModel fact)? loaded,
     TResult? Function()? error,
+    TResult? Function()? loading,
   }) {
     return loaded?.call(fact);
   }
@@ -426,6 +440,7 @@ class _$_CatsFactsLoadedState implements _CatsFactsLoadedState {
     TResult Function()? initial,
     TResult Function(FactModel fact)? loaded,
     TResult Function()? error,
+    TResult Function()? loading,
     required TResult orElse(),
   }) {
     if (loaded != null) {
@@ -440,6 +455,7 @@ class _$_CatsFactsLoadedState implements _CatsFactsLoadedState {
     required TResult Function(_CatsFactsInitialState value) initial,
     required TResult Function(_CatsFactsLoadedState value) loaded,
     required TResult Function(_CatsFactsErrorState value) error,
+    required TResult Function(_CatsFactsLoadingState value) loading,
   }) {
     return loaded(this);
   }
@@ -450,6 +466,7 @@ class _$_CatsFactsLoadedState implements _CatsFactsLoadedState {
     TResult? Function(_CatsFactsInitialState value)? initial,
     TResult? Function(_CatsFactsLoadedState value)? loaded,
     TResult? Function(_CatsFactsErrorState value)? error,
+    TResult? Function(_CatsFactsLoadingState value)? loading,
   }) {
     return loaded?.call(this);
   }
@@ -460,6 +477,7 @@ class _$_CatsFactsLoadedState implements _CatsFactsLoadedState {
     TResult Function(_CatsFactsInitialState value)? initial,
     TResult Function(_CatsFactsLoadedState value)? loaded,
     TResult Function(_CatsFactsErrorState value)? error,
+    TResult Function(_CatsFactsLoadingState value)? loading,
     required TResult orElse(),
   }) {
     if (loaded != null) {
@@ -520,6 +538,7 @@ class _$_CatsFactsErrorState implements _CatsFactsErrorState {
     required TResult Function() initial,
     required TResult Function(FactModel fact) loaded,
     required TResult Function() error,
+    required TResult Function() loading,
   }) {
     return error();
   }
@@ -530,6 +549,7 @@ class _$_CatsFactsErrorState implements _CatsFactsErrorState {
     TResult? Function()? initial,
     TResult? Function(FactModel fact)? loaded,
     TResult? Function()? error,
+    TResult? Function()? loading,
   }) {
     return error?.call();
   }
@@ -540,6 +560,7 @@ class _$_CatsFactsErrorState implements _CatsFactsErrorState {
     TResult Function()? initial,
     TResult Function(FactModel fact)? loaded,
     TResult Function()? error,
+    TResult Function()? loading,
     required TResult orElse(),
   }) {
     if (error != null) {
@@ -554,6 +575,7 @@ class _$_CatsFactsErrorState implements _CatsFactsErrorState {
     required TResult Function(_CatsFactsInitialState value) initial,
     required TResult Function(_CatsFactsLoadedState value) loaded,
     required TResult Function(_CatsFactsErrorState value) error,
+    required TResult Function(_CatsFactsLoadingState value) loading,
   }) {
     return error(this);
   }
@@ -564,6 +586,7 @@ class _$_CatsFactsErrorState implements _CatsFactsErrorState {
     TResult? Function(_CatsFactsInitialState value)? initial,
     TResult? Function(_CatsFactsLoadedState value)? loaded,
     TResult? Function(_CatsFactsErrorState value)? error,
+    TResult? Function(_CatsFactsLoadingState value)? loading,
   }) {
     return error?.call(this);
   }
@@ -574,6 +597,7 @@ class _$_CatsFactsErrorState implements _CatsFactsErrorState {
     TResult Function(_CatsFactsInitialState value)? initial,
     TResult Function(_CatsFactsLoadedState value)? loaded,
     TResult Function(_CatsFactsErrorState value)? error,
+    TResult Function(_CatsFactsLoadingState value)? loading,
     required TResult orElse(),
   }) {
     if (error != null) {
@@ -585,4 +609,118 @@ class _$_CatsFactsErrorState implements _CatsFactsErrorState {
 
 abstract class _CatsFactsErrorState implements CatsFactsState {
   const factory _CatsFactsErrorState() = _$_CatsFactsErrorState;
+}
+
+/// @nodoc
+abstract class _$$_CatsFactsLoadingStateCopyWith<$Res> {
+  factory _$$_CatsFactsLoadingStateCopyWith(_$_CatsFactsLoadingState value,
+          $Res Function(_$_CatsFactsLoadingState) then) =
+      __$$_CatsFactsLoadingStateCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_CatsFactsLoadingStateCopyWithImpl<$Res>
+    extends _$CatsFactsStateCopyWithImpl<$Res, _$_CatsFactsLoadingState>
+    implements _$$_CatsFactsLoadingStateCopyWith<$Res> {
+  __$$_CatsFactsLoadingStateCopyWithImpl(_$_CatsFactsLoadingState _value,
+      $Res Function(_$_CatsFactsLoadingState) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$_CatsFactsLoadingState implements _CatsFactsLoadingState {
+  const _$_CatsFactsLoadingState();
+
+  @override
+  String toString() {
+    return 'CatsFactsState.loading()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_CatsFactsLoadingState);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function(FactModel fact) loaded,
+    required TResult Function() error,
+    required TResult Function() loading,
+  }) {
+    return loading();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function(FactModel fact)? loaded,
+    TResult? Function()? error,
+    TResult? Function()? loading,
+  }) {
+    return loading?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function(FactModel fact)? loaded,
+    TResult Function()? error,
+    TResult Function()? loading,
+    required TResult orElse(),
+  }) {
+    if (loading != null) {
+      return loading();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_CatsFactsInitialState value) initial,
+    required TResult Function(_CatsFactsLoadedState value) loaded,
+    required TResult Function(_CatsFactsErrorState value) error,
+    required TResult Function(_CatsFactsLoadingState value) loading,
+  }) {
+    return loading(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_CatsFactsInitialState value)? initial,
+    TResult? Function(_CatsFactsLoadedState value)? loaded,
+    TResult? Function(_CatsFactsErrorState value)? error,
+    TResult? Function(_CatsFactsLoadingState value)? loading,
+  }) {
+    return loading?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_CatsFactsInitialState value)? initial,
+    TResult Function(_CatsFactsLoadedState value)? loaded,
+    TResult Function(_CatsFactsErrorState value)? error,
+    TResult Function(_CatsFactsLoadingState value)? loading,
+    required TResult orElse(),
+  }) {
+    if (loading != null) {
+      return loading(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _CatsFactsLoadingState implements CatsFactsState {
+  const factory _CatsFactsLoadingState() = _$_CatsFactsLoadingState;
 }

@@ -7,7 +7,7 @@ import 'package:retrofit/retrofit.dart';
 part 'cats_api_client.g.dart';
 
 @RestApi(baseUrl: baseUrl)
-abstract class CatsApiClient extends BaseCatsApiClient {
+abstract class CatsApiClient implements BaseCatsApiClient<FactModel> {
   factory CatsApiClient(Dio dio, {String baseUrl}) = _CatsApiClient;
 
   @override
