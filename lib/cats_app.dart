@@ -1,4 +1,11 @@
+import 'package:cats_generator/blocs/blocs_index.dart';
+import 'package:cats_generator/constants.dart';
+import 'package:cats_generator/data/index.dart';
+import 'package:cats_generator/repository/index.dart';
+import 'package:cats_generator/view/index.dart';
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class CatsApp extends StatelessWidget {
   const CatsApp({super.key});
@@ -6,33 +13,20 @@ class CatsApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Cats App',
+      debugShowCheckedModeBanner: false,
+      title: appTitle,
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const MyHomePage(title: 'Cats App'),
-    );
-  }
-}
-
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
-
-  final String title;
-
-  @override
-  State<MyHomePage> createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-      ),
-      body: Center(
-        child: Text('Hello!'),
+      home: BlocProvider(
+        create: (_) => CatsFactsBloc(
+          CatsRepository(
+            CatsApiClient(
+              Dio(),
+            ),
+          ),
+        ),
+        child: const FactScreen(),
       ),
     );
   }
