@@ -1,9 +1,6 @@
-import 'package:cats_generator/blocs/blocs_index.dart';
-import 'package:cats_generator/constants.dart';
-import 'package:cats_generator/data/index.dart';
-import 'package:cats_generator/repository/index.dart';
-import 'package:cats_generator/view/index.dart';
-import 'package:dio/dio.dart';
+import 'package:cats_generator/l10n/localization_manager.dart';
+import 'package:cats_generator/providers.dart';
+import 'package:cats_generator/view/fact_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -12,21 +9,17 @@ class CatsApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: appTitle,
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: BlocProvider(
-        create: (_) => CatsFactsBloc(
-          CatsRepository(
-            CatsApiClient(
-              Dio(),
-            ),
-          ),
+    return MultiBlocProvider(
+      providers: providers,
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        title: 'Cats App',
+        theme: ThemeData(
+          primarySwatch: Colors.blue,
         ),
-        child: const FactScreen(),
+        localizationsDelegates: LocalizationManager.localizationsDelegates,
+        supportedLocales: LocalizationManager.supportedLocales,
+        home: const FactScreen(),
       ),
     );
   }

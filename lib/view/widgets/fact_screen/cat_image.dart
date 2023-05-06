@@ -1,33 +1,21 @@
+import 'package:cats_generator/blocs/image_bloc/image_bloc.dart';
 import 'package:flutter/material.dart';
-import 'dart:typed_data';
-
-import 'package:http/http.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class CatImage extends StatelessWidget {
   static const double _size = 200;
   static const double _loadingSpinnerSize = 50;
-  static const String _src = 'https://cataas.com/cat';
+  // static const String _src = 'https://cataas.com/cat';
   const CatImage({
     super.key,
   });
 
-  Future<Uint8List> _getImageBytes() async {
-    Response response = await get(Uri.parse(_src));
-    return response.bodyBytes;
-  }
-
   @override
   Widget build(BuildContext context) {
-    return FutureBuilder<Uint8List>(
-      future: _getImageBytes(),
-      builder: (context, snapshot) {
-        if (snapshot.hasData) {
-          return Image.memory(
-            snapshot.data!,
-            fit: BoxFit.cover,
-          );
-        }
-        return const SizedBox(
+    return BlocBuilder<ImageBloc, ImageBlocState>(
+      builder: (context, state) => state.map(
+        initial: (_) => const SizedBox(),
+        loading: (_) => const SizedBox(
           width: _size,
           height: _size,
           child: Align(
@@ -37,8 +25,24 @@ class CatImage extends StatelessWidget {
               child: CircularProgressIndicator(),
             ),
           ),
-        );
-      },
+        ),
+        loaded: (state) => Container(
+          decoration: BoxDecoration(
+            border: Border.all(width: 2),
+          ),
+          child: Image.memory(
+            state.imageBytes,
+            fit: BoxFit.fill,
+          ),
+        ),
+        error: (_) => const SizedBox(
+          width: _size,
+          height: _size,
+          child: Center(
+            child: Text('Error!'),
+          ),
+        ),
+      ),
     );
   }
 }

@@ -1,0 +1,8 @@
+{
+    "catsAppTitle": "Cats App",
+    "factScreenTitleText": "Fact Screen",
+    "historyScreenTitleText": "History Screen",
+    "showNewFactButtonText": "Another fact!",
+    "historyButtonText": "History",
+    "errorText": "Ooops! Something went wrong :( Try again later."
+}

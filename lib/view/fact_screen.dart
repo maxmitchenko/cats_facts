@@ -1,9 +1,11 @@
-import 'package:cats_generator/blocs/blocs_index.dart';
-import 'package:cats_generator/view/constants.dart';
-import 'package:cats_generator/view/index.dart';
+import 'package:cats_generator/blocs/cats_facts_bloc/cats_facts_bloc.dart';
+import 'package:cats_generator/blocs/image_bloc/image_bloc.dart';
+import 'package:cats_generator/sevice_locator.dart';
+import 'package:cats_generator/view/history_screen.dart';
 import 'package:cats_generator/view/widgets/fact_screen/cat_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class FactScreen extends StatefulWidget {
   const FactScreen({super.key});
@@ -15,17 +17,25 @@ class FactScreen extends StatefulWidget {
 class _FactScreenState extends State<FactScreen> {
   @override
   void initState() {
-    BlocProvider.of<CatsFactsBloc>(context).add(
+    _updateData();
+    super.initState();
+  }
+
+  void _updateData() {
+    ServiceLocator.instance<CatsFactsBloc>().add(
       const CatsFactsEvent.getFact(),
     );
-    super.initState();
+    ServiceLocator.instance<ImageBloc>().add(
+      const ImageBlocEvent.getImage(),
+    );
   }
 
   @override
   Widget build(BuildContext context) {
+    final local = AppLocalizations.of(context);
     return Scaffold(
       appBar: AppBar(
-        title: const Text(factScreenTitleText),
+        title: Text(local!.factScreenTitleText),
       ),
       body: BlocBuilder<CatsFactsBloc, CatsFactsState>(
         builder: (context, state) {
@@ -43,11 +53,8 @@ class _FactScreenState extends State<FactScreen> {
                     crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: [
                       ElevatedButton(
-                        onPressed: () =>
-                            BlocProvider.of<CatsFactsBloc>(context).add(
-                          const CatsFactsEvent.getFact(),
-                        ),
-                        child: const Text(showNewFactText),
+                        onPressed: _updateData,
+                        child: Text(local.showNewFactButtonText),
                       ),
                       ElevatedButton(
                         onPressed: () => Navigator.push(
@@ -57,7 +64,7 @@ class _FactScreenState extends State<FactScreen> {
                                 const HistoryScreen(),
                           ),
                         ),
-                        child: const Text(historyButtonText),
+                        child: Text(local.historyButtonText),
                       ),
                       const Padding(
                         padding: EdgeInsets.symmetric(vertical: 20),
@@ -69,8 +76,8 @@ class _FactScreenState extends State<FactScreen> {
                 ),
               ),
             ),
-            error: (_) => const Center(
-              child: Text(errorText),
+            error: (_) => Center(
+              child: Text(local.errorText),
             ),
           );
         },
