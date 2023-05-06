@@ -1,5 +1,5 @@
 import 'package:bloc/bloc.dart';
-import 'package:cats_generator/models/index.dart';
+import 'package:cats_generator/models/fact_model.dart';
 import 'package:cats_generator/repository/base_cats_repository.dart';
 import 'package:cats_generator/services/hive_service.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';

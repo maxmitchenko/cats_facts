@@ -1,7 +1,7 @@
 import 'package:cats_generator/blocs/cats_facts_bloc/cats_facts_bloc.dart';
 import 'package:cats_generator/blocs/image_bloc/image_bloc.dart';
 import 'package:cats_generator/sevice_locator.dart';
-import 'package:cats_generator/view/index.dart';
+import 'package:cats_generator/view/history_screen.dart';
 import 'package:cats_generator/view/widgets/fact_screen/cat_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
